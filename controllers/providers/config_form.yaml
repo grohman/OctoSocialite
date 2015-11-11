@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: Provider
+
+# Model Form Field configuration
+form: $/grohman/socialite/models/provider/fields.yaml
+
+# Model Class name
+modelClass: Grohman\Socialite\Models\Provider
+
+# Default redirect location
+defaultRedirect: grohman/socialite/providers
+
+# Create page
+create:
+    title: Create Provider
+    redirect: grohman/socialite/providers/update/:id
+    redirectClose: grohman/socialite/providers
+
+# Update page
+update:
+    title: Edit Provider
+    redirect: grohman/socialite/providers
+    redirectClose: grohman/socialite/providers
+
+# Preview page
+preview:
+    title: Preview Provider

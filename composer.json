@@ -1,0 +1,6 @@
+{
+    "name": "grohman/socialite",
+    "require": {
+        "laravel/socialite": "~2.0"
+    }
+}

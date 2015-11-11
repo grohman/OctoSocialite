@@ -1,0 +1,4 @@
+1.0.1:
+ - First version of socialite
+ - create_providers_table.php
+ - create_tokens_table.php
