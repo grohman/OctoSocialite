@@ -19,6 +19,9 @@ or
 
 # Install more providers
 1) Find provider at https://socialiteproviders.github.io
+
 2) Go to project root and run composer require socialiteproviders/$providerName
+
 3) Update config/grohman/socialite/config.php with new provider info
+
 4) Go to /backend/grohman/socialite/providers in browser and add provider data
