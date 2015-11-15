@@ -19,6 +19,10 @@ or
 
 5) composer install
 
+6) cd -
+
+7) php artisan october:up
+
 # Install more providers
 1) Find provider at https://socialiteproviders.github.io
 
