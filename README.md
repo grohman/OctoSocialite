@@ -1,6 +1,8 @@
 # OctoSocialite
 october cms socialite plugin
 
+#This package required RainLab.User
+
 #Installation
 1)
 1.1) git clone https://github.com/grohman/OctoSocialite.git plugins/grohman/socialite
