@@ -1,5 +1,9 @@
 {
     "name": "grohman/socialite",
+    "description": "October CMS Socialite wrapper",
+    "homepage": "http://github.com/grohman.ru",
+    "keywords": ["october", "cms", "octobercms", "socialite"],
+    "license": "MIT",
     "require": {
         "laravel/socialite": "~2.0"
     }

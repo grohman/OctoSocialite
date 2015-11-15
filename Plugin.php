@@ -1,5 +1,6 @@
 <?php namespace Grohman\Socialite;
 
+use Backend;
 use Illuminate\Foundation\AliasLoader;
 use System\Classes\PluginBase;
 
@@ -9,7 +10,7 @@ use System\Classes\PluginBase;
 class Plugin extends PluginBase
 {
 
-    public $require = ['RainLab.User'];
+    public $require = [ 'RainLab.User' ];
 
     /**
      *
@@ -29,10 +30,10 @@ class Plugin extends PluginBase
     public function pluginDetails()
     {
         return [
-            'name'        => 'OctoSocialite',
+            'name' => 'October Socialite',
             'description' => 'Laravel Socialite wrapper',
-            'author'      => 'Daniel Podrabinek aka grohman [podrabinek@idesigning.ru]',
-            'icon'        => 'icon-users'
+            'author' => 'Daniel Podrabinek',
+            'icon' => 'icon-users'
         ];
     }
 
@@ -44,9 +45,9 @@ class Plugin extends PluginBase
         return [
             'settings' => [
                 'label' => 'Socialite',
-                'description' => 'Управление авторизацией в социальных приложениях',
+                'description' => 'Social applications',
                 'icon' => 'icon-users',
-                'url'         => \Backend::url('grohman/socialite/providers'),
+                'url' => Backend::url('grohman/socialite/providers'),
                 'order' => 600
             ]
         ];
@@ -54,6 +55,6 @@ class Plugin extends PluginBase
 
     public function registerComponents()
     {
-        return ['Grohman\Socialite\Components\Socialite' => 'socialite'];
+        return [ 'Grohman\Socialite\Components\Socialite' => 'socialite' ];
     }
 }

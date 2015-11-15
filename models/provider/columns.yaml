@@ -3,11 +3,8 @@
 # ===================================
 
 columns:
-    id:
-        label: ID
-        searchable: true
     client_name:
-        label: Соц.Сеть
+        label: App
         searchble: true
     call:
-        label: Адрес
+        label: Address

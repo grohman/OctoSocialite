@@ -1,5 +1,6 @@
 <?php namespace Grohman\Socialite\Models;
 
+use Grohman\Socialite\Models\Token;
 use Model;
 
 /**
@@ -15,15 +16,10 @@ class Provider extends Model
     /**
      * @var array Relations
      */
-    public $hasOne = [ ];
-    public $hasMany = [ ];
-    public $belongsTo = [ ];
-    public $belongsToMany = [ ];
-    public $morphTo = [ ];
-    public $morphOne = [ ];
-    public $morphMany = [ ];
-    public $attachOne = [ ];
-    public $attachMany = [ ];
+    public $hasMany = [
+        'client' => [ 'Grohman\Socialite\Models\Token' ]
+    ];
+
     /**
      * @var array Guarded fields
      */
@@ -35,9 +31,9 @@ class Provider extends Model
 
     public static function boot()
     {
-        static::updated(function($model){
-            if($model->getOriginal('client_id') != $model->getAttribute('client_id')) {
-                \Grohman\Socialite\Models\Token::whereProviderId($model->getAttribute('id'))->delete();
+        static::updated(function ($model) {
+            if ($model->getOriginal('client_id') != $model->getAttribute('client_id')) {
+                Token::whereProviderId($model->getAttribute('id'))->delete();
             }
         });
         parent::boot();
@@ -62,15 +58,7 @@ class Provider extends Model
 
     public static function getAllProviders()
     {
-        return [
-            'facebook' => 'Facebook',
-            'vkontakte' => 'ВКонтакте',
-            'google' => 'Google+',
-            'linkedin' => 'Linkedin',
-            'twitter' => 'Twitter',
-            'bitbucket' => 'Bitbucket',
-            'github' => 'Github',
-        ];
+        return config()->get('grohman.socialite::providers');
     }
 
     public function getCallAttribute()

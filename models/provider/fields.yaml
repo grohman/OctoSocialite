@@ -3,11 +3,8 @@
 # ===================================
 
 fields:
-    id:
-        label: ID
-        disabled: true
     client_name:
-        label: Соц.сеть
+        label: App
         type: dropdown
     client_id:
         label: App Id

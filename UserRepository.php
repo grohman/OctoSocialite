@@ -1,6 +1,7 @@
 <?php namespace Grohman\Socialite;
 
 use Carbon\Carbon;
+use Exception;
 use Grohman\Socialite\Models\Token;
 use RainLab\User\Models\User;
 
@@ -11,7 +12,7 @@ class UserRepository
      * @param      $userData
      * @param      $provider
      * @return static
-     * @throws \Exception
+     * @throws Exception
      */
     public function findByUserdataOrCreate($userData, $provider)
     {
@@ -23,7 +24,7 @@ class UserRepository
         }
 
         if ($userData->email == null) {
-            throw new \Exception('Auth failed, email undefined');
+            throw new Exception('Auth failed, email undefined');
         }
 
         $userExists = User::whereEmail($userData->email)->first();

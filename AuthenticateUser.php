@@ -2,8 +2,8 @@
 
 use Exception;
 use Grohman\Socialite\Models\Provider;
-use Illuminate\Support\Facades\Auth;
 use Laravel\Socialite\Contracts\Factory as Socialite;
+use October\Rain\Foundation\Application as OctoApp;
 use RainLab\User\Facades\Auth as Authenticator;
 
 class AuthenticateUser
@@ -70,13 +70,12 @@ class AuthenticateUser
                 'redirect' => $callbackUrl,
                 'provider_id' => $result->id
             ]);
-            $providerClassName = ucfirst($provider).'SocialiteProvider';
-            $providerFullClassName = 'Grohman\Socialite\Providers\\'.$providerClassName;
-            if(class_exists($providerFullClassName)){
+
+            $providerFullClassName = 'SocialiteProviders\\' . $provider . '\\Provider';
+            if (class_exists($providerFullClassName)) {
                 $socialite = app()->make('Laravel\Socialite\Contracts\Factory');
-                $socialite->extend($provider, function ($app) use ($providerFullClassName, $provider, $socialite) {;
-                    return $socialite->buildProvider($providerFullClassName,
-                        config()->get('services.'.$provider));
+                $socialite->extend($provider, function (OctoApp $app) use ($providerFullClassName, $provider, $socialite) {
+                    return $socialite->buildProvider($providerFullClassName, config()->get('services.' . $provider));
                 });
             }
 
