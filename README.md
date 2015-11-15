@@ -1,7 +1,7 @@
 # OctoSocialite
 october cms socialite plugin
 
-#This package required RainLab.User
+#This package requires RainLab.User
 
 #Installation
 1)
